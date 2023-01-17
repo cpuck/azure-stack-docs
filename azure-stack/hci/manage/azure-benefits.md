@@ -178,6 +178,14 @@ To turn on Azure Benefits for VMs, select the **VMs** tab, then select the VM(s)
   Sync-AzureStackHCI
   ```
 
+- If Azure Benefits for one or more servers appears as **Expired**, verify the servers can access these URL's:
+
+  ```powershell
+  Invoke-WebRequest  http://www.microsoft.com/pkiops/crl/Microsoft Azure TLS Issuing CA 05.crl -UseBasicParsing
+  Invoke-WebRequest  http://crl3.digicert.com/DigiCertGlobalRootG2.crl -UseBasicParsing
+  Invoke-WebRequest  http://crl4.digicert.com/DigiCertGlobalRootG2.crl -UseBasicParsing
+  ```
+  
 - If a server is newly added and has not yet been set up with Azure Benefits, it may appear as **Inactive**. To add the new server, run setup again:
 
   ```powershell
